@@ -72,3 +72,7 @@ legend{font-size:14px;font-weight:600;padding:0;margin-bottom:6px}
 .over{position:relative;z-index:1}
 video,.photo{width:100%;border-radius:10px;background:#111;display:block;max-height:300px;object-fit:cover}
 @media (min-width:600px){body{padding:24px 0}.screen{border-radius:24px;min-height:860px;box-shadow:0 20px 60px rgba(0,0,0,.5)}}
+
+/* Underwater background on every page (shows around the phone-width screen) */
+html{background:#0B1F2E}body,body.light-bg,body.dark-bg{background:transparent}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:#0B1F2E url("../img-underwater-16x9.png") center/cover no-repeat}
