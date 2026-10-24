@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="app.css?v=5">
+<link rel="stylesheet" href="app.css?v=6">
 </head>
 <body class="">
 <main class="screen black" style="padding-top:0">
@@ -39,7 +39,7 @@
         <label for="cap" class="eyebrow" style="margin:0">Your caption · edit it</label>
         <button type="button" class="linkbtn" id="copy" style="min-height:32px;padding:4px 0;font-size:12px;letter-spacing:.12em;text-transform:uppercase">Copy</button>
       </div>
-      <textarea id="cap" style="min-height:120px;background:transparent;border:0;padding:0;color:rgba(255,255,255,.9);font-size:14px;line-height:21px"></textarea>
+      <textarea id="cap" placeholder="I got baptized today. Here is why, in my own words. If you have been thinking about it, I would love to talk, and I would love to see you in the water. #MyBaptismStory #BaptizeTheWorld" style="min-height:120px;background:transparent;border:0;padding:0;color:rgba(255,255,255,.9);font-size:14px;line-height:21px"></textarea>
     </div>
     <p class="msg" id="msg" role="status" style="color:#B7D1DF"></p>
     <p class="small">The post is yours to keep or delete. Nothing was uploaded by this site.</p>
@@ -55,12 +55,14 @@
   var s = MBS.all(), $ = function(i){ return document.getElementById(i); };
   var link = MBS.storyUrl();
   $('who').textContent = [s.first, s.city].filter(Boolean).join(' · ');
-  $('cap').value = s.cap || ('I got baptized. Here is why, in my own words. If you have been thinking about it, I would love to talk, and I would love to see you in the water. ' + link + ' #MyBaptismStory #BaptizeTheWorld');
+  var savedCap = s.cap || '';
+  if (/github\.io|story\.html|https?:\/\//i.test(savedCap)) { savedCap = ''; MBS.set('cap', ''); }
+  $('cap').value = savedCap;
   $('cap').addEventListener('input', function(){ MBS.set('cap', this.value); refresh(); });
   if (s.consent === 'yes') $('btw').classList.remove('hidden');
   $('view').href = link;
   function refresh(){
-    var t = $('cap').value;
+    var t = $('cap').value || $('cap').placeholder;
     $('wa').href = 'https://wa.me/?text=' + encodeURIComponent(t);
     $('church').href = 'https://wa.me/?text=' + encodeURIComponent('Pastor, I got baptized and I told my story. ' + link);
     $('sms').href = (/iPhone|iPad|iPod|Mac/i.test(navigator.userAgent) ? 'sms:&body=' : 'sms:?body=') + encodeURIComponent(t);
@@ -77,7 +79,7 @@
     el.src = url; $('mediaWrap').appendChild(el); $('mediaWrap').classList.remove('hidden');
   });
   function shareSheet(){
-    var t = $('cap').value;
+    var t = $('cap').value || $('cap').placeholder;
     var data = { title: 'My Baptism Story', text: t };
     if (media && navigator.canShare && navigator.canShare({ files: [media] })) data.files = [media];
     else data.url = link;
@@ -86,7 +88,7 @@
     copy();
   }
   function copy(){
-    var t = $('cap').value;
+    var t = $('cap').value || $('cap').placeholder;
     if (navigator.clipboard) navigator.clipboard.writeText(t).then(function(){ $('msg').textContent = 'Caption copied.'; });
     else { $('cap').select(); document.execCommand('copy'); $('msg').textContent = 'Caption copied.'; }
   }
