@@ -11,9 +11,9 @@
 <style>
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;color:#fff;
-    background:#020817 url("img-underwater-16x9.png") center/cover fixed no-repeat;min-height:100vh;padding:28px}
-  .frame{max-width:1120px;margin:0 auto;background:rgba(0,0,0,.9);border:1px solid rgba(255,255,255,.18);
+  body{margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;color:#fff;background:#0B1F2E;min-height:100vh;padding:72px 56px}
+  body::before{content:"";position:fixed;inset:0;z-index:-1;background:#0B1F2E url("img-underwater-16x9.png") center/cover no-repeat}
+  .frame{max-width:1080px;margin:0 auto;background:rgba(0,0,0,.9);border:1px solid rgba(255,255,255,.18);
     border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6)}
   a{color:#8EB3C7}a:hover{color:#fff}
   .eyebrow{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);margin:0 0 10px}
@@ -127,7 +127,7 @@
   footer nav{display:flex;gap:18px;flex-wrap:wrap}
 
   @media (max-width:860px){
-    body{padding:12px}
+    body{padding:24px 14px}
     header{grid-template-columns:1fr}
     h1{font-size:56px}
     section,.hero-text,.btw,footer{padding-left:20px;padding-right:20px}
