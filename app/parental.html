@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Parental Consent · My Baptism Story</title>
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="app.css?v=7">
+</head>
+<body class="">
+<main class="screen black page">
+  <div class="top"><a class="brand" href="../index2.html">BAPTIZE</a><a href="../index2.html" style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:12px 0">Back</a></div>
+
+    <p class="eyebrow">For anyone under 18</p>
+    <h1>Parental Consent</h1>
+    <p class="lede">If you are under 18, a parent or legal guardian must say yes before you record or share your baptism story.</p>
+
+    <div class="box"><p><strong>Nothing is uploaded.</strong> This form is not sent to anyone. It stays on this device, and you can print it or save it as a PDF to keep a copy for your church.</p></div>
+
+    <h2>What the parent or guardian is agreeing to</h2>
+    <ul>
+      <li>Your child may record a short video or write a short story about their baptism on this device.</li>
+      <li>Your child may share that story through apps you allow, such as Facebook, Instagram or YouTube, and with your church.</li>
+      <li>Each app has its own age rules. Most, including Facebook, Instagram and YouTube, require users to be at least 13 to have their own account.</li>
+      <li>Baptize The World may share your child's story only if you also check the sharing box below.</li>
+      <li>You can withdraw permission at any time by deleting the post in the app where it was shared and telling your church.</li>
+    </ul>
+
+    <h2>Tips for families</h2>
+    <ul>
+      <li>Record together and watch it before posting.</li>
+      <li>Use a first name only. Leave out school, address, phone number and other personal details.</li>
+      <li>Check the privacy settings on the app before you share.</li>
+    </ul>
+
+    <div class="panel">
+      <h2>Consent form</h2>
+      <form id="consentForm" novalidate>
+        <div class="two">
+          <label>Child's first name<input type="text" id="cName" autocomplete="off"></label>
+          <label>Date<input type="date" id="cDate"></label>
+        </div>
+        <div class="two">
+          <label>Parent or guardian full name<input type="text" id="pName" autocomplete="name"></label>
+          <label>Parent or guardian email<input type="email" id="pEmail" autocomplete="email"></label>
+        </div>
+        <label class="check"><input type="checkbox" id="agree"><span>I am the parent or legal guardian of this child, and I give permission for them to record and share their baptism story as described on this page. I have read the <a href="privacy.html">Privacy</a> page.</span></label>
+        <label class="check"><input type="checkbox" id="btw"><span>Optional: Baptize The World may also share my child's story.</span></label>
+        <div class="btn-row noprint">
+          <button class="btn" type="submit">I give consent</button>
+          <button class="btn btn-line" type="button" id="printBtn" style="background:#fff;color:#020817;border:1px solid #CBD5E1">Print or save PDF</button>
+        </div>
+        <div class="msg" id="cMsg" role="status"></div>
+      </form>
+    </div>
+    <p class="muted noprint" style="margin-top:16px">This page is a plain-language consent form for a demo app, not legal advice.</p>
+  
+  <div class="appfoot">
+    <nav><a href="videos.html">Watch videos</a><a href="team.html">Created By</a><a href="privacy.html">Privacy</a><a href="parental.html">Parental Consent</a><a href="https://baptize.org" target="_blank" rel="noopener">baptize.org</a></nav>
+    <p><strong>Baptize The World</strong> (not this website): <a href="https://www.youtube.com/@baptizetheworld" target="_blank" rel="noopener">YouTube</a> · <a href="https://www.facebook.com/baptizeamerica" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/baptizetheworld" target="_blank" rel="noopener">Instagram</a></p>
+  </div>
+</main>
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  try { $('cDate').valueAsDate = new Date(); } catch(e){}
+  $('printBtn').onclick = function(){ window.print(); };
+  $('consentForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var m = $('cMsg');
+    m.className = 'msg err';
+    if (!$('cName').value.trim() || !$('pName').value.trim() || $('pEmail').value.indexOf('@') < 1){
+      m.textContent = 'Please fill in the child\'s first name and the parent or guardian name and email.'; return;
+    }
+    if (!$('agree').checked){ m.textContent = 'Please check the consent box.'; return; }
+    m.className = 'msg ok';
+    m.innerHTML = 'Thank you. Consent is recorded on this device only. <a href="../index2.html">Go back and tell the story</a>.';
+  });
+})();
+</script>
+</body>
+</html>

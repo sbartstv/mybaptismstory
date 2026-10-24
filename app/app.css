@@ -88,3 +88,29 @@ body{padding:16px 14px !important}
 .vwrap{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#0B1220;border:1px solid rgba(255,255,255,.14)}
 .vwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 #cap::placeholder{color:rgba(255,255,255,.4);font-style:italic}
+/* Info pages inside the app (Created By, Privacy, Parental Consent) */
+.page h1{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:40px;line-height:1;letter-spacing:-.02em;margin:4px 0 8px}
+.page h2{font-size:17px;margin:18px 0 6px}
+.page p,.page li{font-size:15px;line-height:1.6;color:rgba(255,255,255,.86)}
+.page ul{padding-left:20px;margin:0}
+.page .lede{font-size:16px}
+.page .muted{color:rgba(255,255,255,.6);font-size:13px}
+.page .box{background:#0B1220;border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:14px;margin:10px 0}
+.page a{color:#B7D1DF}
+.page .btn-row{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.page .btn{color:#000;background:#fff}.page .btn-line{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.32)}
+.page .team{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.page .member{background:#0B1220;border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:2px}
+.page .member strong{font-size:16px}
+.page .role{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#8EB3C7}
+.page figure img{max-width:100% !important}
+.page .panel{background:#fff;color:#020817;border-radius:12px;padding:16px;margin-top:12px}
+.page .panel p,.page .panel li{color:#334155}.page .panel h2{color:#020817;margin-top:0}.page .panel a{color:#1D4ED8}
+.page .panel label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;margin:0 0 12px;color:#020817}
+.page .panel input[type=date]{height:44px;border:1px solid #CBD5E1;border-radius:6px;padding:0 12px;font:inherit;font-size:16px;width:100%}
+.page .two{display:flex;flex-direction:column}
+.page .check{flex-direction:row !important;align-items:flex-start;gap:10px;font-weight:400 !important;line-height:1.5}
+.page .check input{width:18px;height:18px;margin:3px 0 0;flex-shrink:0;accent-color:#020817}
+.page .panel .btn{background:#000;color:#fff}
+.page .panel .msg.ok{color:#166534}.page .panel .msg.err{color:#B91C1C}
+@media print{body::before,.top,.appfoot,.noprint{display:none}.screen{box-shadow:none}}
