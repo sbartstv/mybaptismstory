@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Baptism Story</title>
+<style>
+  body{margin:0;font-family:system-ui,sans-serif;background:#eaf4fb;color:#123;text-align:center}
+  main{max-width:520px;margin:0 auto;padding:48px 16px}
+  h1{font-size:2.2rem;margin:0 0 8px;color:#0b5c8a}
+  p{font-size:1.1rem;line-height:1.5}
+  .btn{display:block;width:100%;box-sizing:border-box;padding:16px;margin:12px 0;border:0;border-radius:12px;font-size:1.1rem;background:#0b5c8a;color:#fff;cursor:pointer;text-decoration:none}
+  .btn.alt{background:#fff;color:#0b5c8a;border:2px solid #0b5c8a}
+  video{width:100%;border-radius:12px;margin-top:12px;display:none}
+  small{color:#567}
+</style>
+</head>
+<body>
+<main>
+  <h1>My Baptism Story</h1>
+  <p>Tell your story in your own words and share it, so one baptism invites the next.</p>
+
+  <label class="btn" for="vid">Record or Choose Your Video</label>
+  <input id="vid" type="file" accept="video/*" capture="user" hidden>
+  <video id="preview" controls playsinline></video>
+
+  <button class="btn" id="share" hidden>Share My Story</button>
+  <a class="btn alt" id="download" hidden>Download Video</a>
+
+  <p><small>Coming soon: guided prompts and story cards. FaithTech SoCal Hackathon 2026.</small></p>
+</main>
+<script>
+  const input = document.getElementById('vid');
+  const preview = document.getElementById('preview');
+  const shareBtn = document.getElementById('share');
+  const dl = document.getElementById('download');
+  let file;
+  input.addEventListener('change', () => {
+    file = input.files[0];
+    if (!file) return;
+    const url = URL.createObjectURL(file);
+    preview.src = url; preview.style.display = 'block';
+    dl.href = url; dl.download = file.name || 'my-baptism-story.mp4'; dl.hidden = false;
+    shareBtn.hidden = false;
+  });
+  shareBtn.addEventListener('click', async () => {
+    const text = 'I got baptized. Here is my story. Share yours: ' + location.href;
+    try {
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({ files: [file], title: 'My Baptism Story', text });
+      } else {
+        alert('Sharing videos works on phones. Download the video and upload it to Facebook, Instagram, or YouTube.');
+      }
+    } catch (e) {}
+  });
+</script>
+</body>
+</html>
