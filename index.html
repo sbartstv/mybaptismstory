@@ -109,6 +109,12 @@
   .card figcaption a{color:#fff}
   .card.new{border-color:#8EB3C7}
 
+  /* Videos */
+  .videos{display:grid;grid-template-columns:1fr;gap:28px;margin-top:20px}
+  .video h3{margin:0 0 10px;font-size:18px}
+  .vwrap{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#0B1220;border:1px solid rgba(255,255,255,.12)}
+  .vwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
   /* Connect */
   .connect{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
   .social{display:flex;align-items:center;justify-content:center;gap:10px;min-height:64px;border-radius:12px;color:#fff;text-decoration:none;font-weight:600;font-size:15px}
@@ -281,6 +287,22 @@
       </div>
       <div class="reel" aria-label="Baptism stories, scrolling">
         <div class="track" id="track"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Videos -->
+  <section id="videos">
+    <p class="eyebrow">Watch</p>
+    <h2 class="serif">Stories from Baptize The World</h2>
+    <div class="videos">
+      <div class="video">
+        <h3>Pastors Unite Around Baptize the World</h3>
+        <div class="vwrap"><iframe src="https://www.youtube.com/embed/ZP9-3LlETT0" title="Pastors Unite Around Baptize the World" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      </div>
+      <div class="video">
+        <h3>Why Sammy the Bull Got Baptized</h3>
+        <div class="vwrap"><iframe src="https://www.youtube.com/embed/ZxWX8PrdH_M" title="Why Sammy the Bull Got Baptized" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
       </div>
     </div>
   </section>
