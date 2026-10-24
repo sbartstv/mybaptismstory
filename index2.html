@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tell your story · My Baptism Story</title>
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="app/app.css">
+</head>
+<body class="">
+<main class="screen black">
+  <img class="bg" src="app/sphere.jpg" alt="" aria-hidden="true" style="top:90px;height:420px;opacity:.9">
+  <div class="bg" style="inset:0;height:100%;background:radial-gradient(rgba(0,0,0,.25) 0%,rgba(0,0,0,.55) 55%,rgba(0,0,0,.92) 100%)"></div>
+  <div class="top"><a class="brand" href="index.html">BAPTIZE</a><a href="index.html" style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:12px 0">Full site</a></div>
+  <div class="over push" style="display:flex;flex-direction:column;gap:16px">
+    <p class="eyebrow" style="color:rgba(255,255,255,.55)">Baptize The World</p>
+    <h1 class="serif" style="font-size:60px;line-height:.92">My Baptism<br>Story</h1>
+    <p style="font-size:18px;line-height:27px;font-weight:500;color:rgba(255,255,255,.9)">You went into the water. Tell someone what He did. Three questions. Your words.</p>
+    <div><p class="eyebrow" style="margin:0">Today</p><p style="font-size:22px;font-weight:700;line-height:1.2" data-today></p></div>
+    <p style="font-size:13px;line-height:19px;color:rgba(255,255,255,.7)">Nothing is uploaded here. Your story stays on your phone until you choose to share it.</p>
+    <a class="btn btn-white" href="app/about.html" id="adult" style="min-height:56px">I'm 18 or older. Tell my story</a>
+    <a class="btn btn-line" href="app/about.html" id="minor">I'm under 18. Record with a parent</a>
+  </div>
+</main>
+<script src="app/app.js"></script>
+<script>
+document.getElementById('adult').onclick=function(){MBS.set('minor','no')};
+document.getElementById('minor').onclick=function(){MBS.set('minor','yes')};
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Share your story · My Baptism Story</title>
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="app.css">
+</head>
+<body class="">
+<main class="screen black" style="padding-top:0">
+  <img src="cove.jpg" alt="Coming up out of the water at a cove baptism" style="width:calc(100% + 40px);margin:0 -20px;height:300px;object-fit:cover;display:block">
+  <div class="bg" style="height:300px;background:linear-gradient(to bottom,rgba(0,0,0,.35) 0%,rgba(0,0,0,.05) 45%,#000 100%)"></div>
+  <div class="top" style="position:absolute;top:max(28px,env(safe-area-inset-top));left:20px;right:20px"><a class="brand" href="../index2.html">BAPTIZE</a><span id="who"></span></div>
+  <div class="over" style="margin-top:-60px;display:flex;flex-direction:column;gap:14px">
+    <p class="creed" style="font-size:20px">We acknowledge one baptism for the forgiveness of sins.</p>
+    <h1 style="font-size:28px;line-height:34px;font-weight:600">Send your baptism story to someone you love.</h1>
+    <div id="mediaWrap" class="hidden"></div>
+    <div class="grid3">
+      <a class="btn btn-line btn-sm" id="wa" target="_blank" rel="noopener">WhatsApp</a>
+      <button class="btn btn-line btn-sm" type="button" id="ig">Instagram</button>
+      <a class="btn btn-line btn-sm" id="fb" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div class="grid2">
+      <a class="btn btn-line btn-sm" id="church" target="_blank" rel="noopener">Send to my church</a>
+      <a class="btn btn-blue btn-sm hidden" id="btw" href="https://baptize.org" target="_blank" rel="noopener">Send to Baptize The World</a>
+      <a class="btn btn-line btn-sm" id="view" href="#">See my story card</a>
+    </div>
+    <div style="border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <label for="cap" class="eyebrow" style="margin:0">Your caption · edit it</label>
+        <button type="button" class="linkbtn" id="copy" style="min-height:32px;padding:4px 0;font-size:12px;letter-spacing:.12em;text-transform:uppercase">Copy</button>
+      </div>
+      <textarea id="cap" style="min-height:120px;background:transparent;border:0;padding:0;color:rgba(255,255,255,.9);font-size:14px;line-height:21px"></textarea>
+    </div>
+    <p class="msg" id="msg" role="status" style="color:#B7D1DF"></p>
+    <p class="small">The post is yours to keep or delete. Nothing was uploaded by this site.</p>
+  </div>
+</main>
+<script src="app.js"></script>
+<script>
+(function(){
+  var s = MBS.all(), $ = function(i){ return document.getElementById(i); };
+  var link = MBS.storyUrl();
+  $('who').textContent = [s.first, s.city].filter(Boolean).join(' · ');
+  $('cap').value = s.cap || ('I got baptized. Here is why, in my own words. If you have been thinking about it, I would love to talk, and I would love to see you in the water. ' + link + ' #MyBaptismStory #BaptizeTheWorld');
+  $('cap').addEventListener('input', function(){ MBS.set('cap', this.value); refresh(); });
+  if (s.consent === 'yes') $('btw').classList.remove('hidden');
+  $('view').href = link;
+  function refresh(){
+    var t = $('cap').value;
+    $('wa').href = 'https://wa.me/?text=' + encodeURIComponent(t);
+    $('church').href = 'https://wa.me/?text=' + encodeURIComponent('Pastor, I got baptized and I told my story. ' + link);
+    $('fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(link);
+  }
+  refresh();
+  var media = null;
+  MBS.getMedia().then(function(f){
+    if (!f) return; media = f;
+    var url = URL.createObjectURL(f), el;
+    if (/^video/.test(f.type)){ el = document.createElement('video'); el.controls = true; el.playsInline = true; }
+    else { el = document.createElement('img'); el.className = 'photo'; el.alt = 'Your baptism photo'; }
+    el.src = url; $('mediaWrap').appendChild(el); $('mediaWrap').classList.remove('hidden');
+  });
+  function shareSheet(){
+    var t = $('cap').value;
+    var data = { title: 'My Baptism Story', text: t };
+    if (media && navigator.canShare && navigator.canShare({ files: [media] })) data.files = [media];
+    else data.url = link;
+    if (navigator.share) return navigator.share(data).catch(function(){});
+    $('msg').textContent = 'Sharing to Instagram works from your phone. Your caption is copied, open Instagram and paste it.';
+    copy();
+  }
+  function copy(){
+    var t = $('cap').value;
+    if (navigator.clipboard) navigator.clipboard.writeText(t).then(function(){ $('msg').textContent = 'Caption copied.'; });
+    else { $('cap').select(); document.execCommand('copy'); $('msg').textContent = 'Caption copied.'; }
+  }
+  $('ig').onclick = shareSheet;
+  $('copy').onclick = copy;
+})();
+</script>
+</body>
+</html>

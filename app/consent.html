@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your story, your yes · My Baptism Story</title>
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="app.css">
+</head>
+<body class="light-bg">
+<main class="screen light">
+  <div class="top"><a class="brand" href="../index2.html">BAPTIZE</a><span>Almost done</span></div>
+  <h1 class="serif title" style="margin-top:6px">Your story, your yes.</h1>
+  <p class="lead">Baptize The World would love to share your story too, at church, online, and with people around the world who need to hear it.</p>
+  <div class="grid2" style="gap:10px">
+    <div class="box"><p class="eyebrow">If you say yes</p><ul><li>Use this story, your words, voice, image and first name</li><li>Share it anywhere, in any language, now and later, at no cost</li><li>Trim for length or add subtitles, never change what you said</li></ul></div>
+    <div class="box"><p class="eyebrow">You keep</p><ul><li>Your story. Share it anywhere, it is still yours</li><li>Your privacy. First name only, never your contact details, never sold</li><li>Your right to change your mind. Tell your church and we stop</li></ul></div>
+  </div>
+  <fieldset>
+    <legend class="sr">Share with Baptize The World?</legend>
+    <label class="opt"><input type="radio" name="yes" value="yes" data-key="consent"><span><b>Yes</b><span>Baptize The World may share my story.</span></span></label>
+    <label class="opt"><input type="radio" name="yes" value="notyet" data-key="consent"><span><b>Not yet</b><span>I'll share it only with my own friends and family.</span></span></label>
+  </fieldset>
+  <div id="parent" class="box hidden">
+    <p class="eyebrow">Parent or guardian</p>
+    <label class="f">Parent or guardian full name<input type="text" data-key="pname" autocomplete="name"></label>
+    <label class="f">Parent or guardian email<input type="email" data-key="pemail" autocomplete="email"></label>
+    <label style="display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.5"><input type="checkbox" id="pok" style="width:18px;height:18px;margin:3px 0 0;flex-shrink:0;accent-color:#020817"><span>I am the parent or legal guardian and I give permission for my child to record and share their baptism story.</span></label>
+  </div>
+  <p class="small">If you are under 18, a parent or guardian says yes with you. Read the <a href="../consent.html">Parental Consent</a> and <a href="../privacy.html">Privacy</a> pages.</p>
+  <p class="msg" id="msg" role="alert"></p>
+  <div class="push" style="display:flex;flex-direction:column;gap:8px">
+    <span style="font-size:14px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;text-align:center">Record my story</span>
+    <div class="grid2">
+      <label class="btn btn-black btn-sm" for="photoIn" id="camBtn"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13.5" r="3.5"></circle></svg>Camera</label>
+      <label class="btn btn-black btn-sm" for="videoIn" id="vidBtn"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"></rect><path d="M16 10l5-3v10l-5-3z"></path></svg>Video</label>
+    </div>
+    <input id="photoIn" type="file" accept="image/*" capture="user" hidden>
+    <input id="videoIn" type="file" accept="video/*" capture="user" hidden>
+    <a class="btn btn-line" href="share.html" id="skip" style="min-height:44px">Skip, just share my words</a>
+    <span class="small" style="text-align:center">Opens your phone's own camera. The recording stays on your phone.</span>
+  </div>
+</main>
+<script src="app.js"></script>
+<script>
+(function(){
+  var minor = MBS.get('minor') === 'yes';
+  if (minor) document.getElementById('parent').classList.remove('hidden');
+  function ok(){
+    var m = document.getElementById('msg');
+    if (!MBS.get('consent')){ m.textContent = 'Please choose Yes or Not yet.'; return false; }
+    if (minor){
+      var e = (MBS.get('pemail')||'');
+      if (!(MBS.get('pname')||'').trim() || e.indexOf('@') < 1 || !document.getElementById('pok').checked){
+        m.textContent = 'A parent or guardian needs to add their name and email and check the box.'; return false;
+      }
+    }
+    m.textContent = ''; return true;
+  }
+  ['camBtn','vidBtn'].forEach(function(id){
+    document.getElementById(id).addEventListener('click', function(e){ if (!ok()) e.preventDefault(); });
+  });
+  document.getElementById('skip').addEventListener('click', function(e){ if (!ok()) e.preventDefault(); });
+  ['photoIn','videoIn'].forEach(function(id){
+    document.getElementById(id).addEventListener('change', function(){
+      var f = this.files[0]; if (!f) return;
+      MBS.putMedia(f).then(function(){ location.href = 'share.html'; }, function(){ location.href = 'share.html'; });
+    });
+  });
+})();
+</script>
+</body>
+</html>

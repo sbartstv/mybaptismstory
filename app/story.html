@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A baptism story · My Baptism Story</title>
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="app.css">
+</head>
+<body class="">
+<main class="screen black" style="padding-top:0">
+  <div style="position:relative;margin:0 -20px;height:360px;flex-shrink:0">
+    <img src="testimony.jpg" alt="A newly baptized person telling their story into a phone" style="width:100%;height:360px;object-fit:cover;display:block">
+    <div class="bg" style="height:100%;background:linear-gradient(to top,rgba(0,0,0,.95) 0%,rgba(0,0,0,.1) 55%,rgba(0,0,0,.35) 100%)"></div>
+    <div class="top" style="position:absolute;top:max(28px,env(safe-area-inset-top));left:20px;right:20px"><a class="brand" href="../index2.html">BAPTIZE</a></div>
+    <div style="position:absolute;left:20px;right:20px;bottom:16px;display:flex;flex-direction:column;gap:4px">
+      <span id="meta" style="font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.75)"></span>
+      <h1 class="serif" id="name" style="font-size:40px;line-height:1">A baptism story</h1>
+    </div>
+  </div>
+  <p id="quote" style="font-size:17px;line-height:26px;color:rgba(255,255,255,.92)"></p>
+  <div style="border-top:1px solid rgba(255,255,255,.14);padding-top:14px;display:flex;flex-direction:column;gap:6px">
+    <p class="eyebrow" style="margin:0">Watching from the shore?</p>
+    <h2 style="margin:0;font-size:22px;line-height:29px;font-weight:600">You can be next. Today, if you're ready.</h2>
+    <p class="sub" style="font-size:14px;line-height:21px">Baptize The World unites churches in baptism. Find one near you, or tell your own story.</p>
+  </div>
+  <a class="btn btn-white push" href="https://baptize.org" target="_blank" rel="noopener" style="min-height:56px">Get baptized</a>
+  <a class="btn btn-line" href="../index2.html">Tell my story</a>
+</main>
+<script src="app.js"></script>
+<script>
+(function(){
+  var p = new URLSearchParams(location.search);
+  var n = p.get('n'), c = p.get('c'), t = p.get('t'), q = p.get('q');
+  if (!q){ n = n || 'Maria'; c = c || 'Irvine, CA'; t = t || 'First-time baptism';
+    q = "I'd been carrying everything alone. Under the water it went quiet, and when I came up I knew I wasn't alone anymore."; }
+  document.getElementById('name').textContent = n ? n + "'s story" : 'A baptism story';
+  document.getElementById('meta').textContent = [t, c].filter(Boolean).join(' · ');
+  document.getElementById('quote').textContent = '\u201C' + q + '\u201D';
+  document.title = (n ? n + "'s baptism story" : 'A baptism story') + ' · My Baptism Story';
+})();
+</script>
+</body>
+</html>

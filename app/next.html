@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What's next · My Baptism Story</title>
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="app.css">
+</head>
+<body class="light-bg">
+<main class="screen light">
+  <div class="top"><a class="brand" href="../index2.html">BAPTIZE</a><span>5 / 5</span></div>
+  <div class="bar"><i style="width:100%"></i></div>
+  <h1 class="serif title" style="margin-top:6px">What's next for you?</h1>
+  <p class="muted" style="font-size:14px">Pick any that fit.</p>
+  <fieldset>
+    <legend class="sr">How would you like follow-up?</legend>
+    <label class="opt"><input type="checkbox" value="church" data-key="next"><span><b>Connect me with a church near me</b><span>Matched by the city you gave us.</span></span></label>
+    <label class="opt"><input type="checkbox" value="resources" data-key="next"><span><b>Send me Resources on Following Jesus</b></span></label>
+    <label class="opt"><input type="checkbox" value="talk" data-key="next"><span><b>I'd like to talk to someone about what I'm feeling</b></span></label>
+    <label class="opt"><input type="checkbox" value="none" data-key="next"><span><b>Nothing right now, just my story</b></span></label>
+  </fieldset>
+  <div style="display:flex;flex-direction:column;gap:6px">
+    <label class="f" for="contact">Best way to reach you</label>
+    <div class="row">
+      <select aria-label="Channel" data-key="channel" style="flex:0 0 118px"><option>WhatsApp</option><option>SMS</option><option>Email</option></select>
+      <input id="contact" type="text" data-key="contact" placeholder="Phone or email" autocomplete="tel">
+    </div>
+  </div>
+  <label class="f">Language for messages
+    <select data-key="lang"><option>English</option><option>Español</option><option>Tagalog</option><option>Português</option><option>한국어</option></select>
+  </label>
+  <a class="btn btn-black push" href="consent.html">Next</a>
+</main>
+<script src="app.js"></script>
+
+</body>
+</html>
