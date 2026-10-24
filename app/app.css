@@ -76,3 +76,7 @@ video,.photo{width:100%;border-radius:10px;background:#111;display:block;max-hei
 /* Underwater background on every page (shows around the phone-width screen) */
 html{background:#0B1F2E}body,body.light-bg,body.dark-bg{background:transparent}
 body::before{content:"";position:fixed;inset:0;z-index:-1;background:#0B1F2E url("../img-underwater-16x9.png") center/cover no-repeat}
+/* Water on the sides at every screen size */
+body{padding:16px 14px !important}
+.screen{max-width:440px;border-radius:20px;min-height:calc(100dvh - 32px);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+@media (min-width:600px){body{padding:40px 24px !important}.screen{min-height:820px}}
