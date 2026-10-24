@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="app.css?v=4">
+<link rel="stylesheet" href="app.css?v=5">
 </head>
 <body class="">
 <main class="screen black" style="padding-top:0">
@@ -23,6 +23,11 @@
       <a class="btn btn-line btn-sm" id="wa" target="_blank" rel="noopener">WhatsApp</a>
       <button class="btn btn-line btn-sm" type="button" id="ig">Instagram</button>
       <a class="btn btn-line btn-sm" id="fb" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div class="grid3">
+      <a class="btn btn-line btn-sm" href="https://www.youtube.com/upload" target="_blank" rel="noopener">YouTube</a>
+      <a class="btn btn-line btn-sm" id="sms">Text (SMS)</a>
+      <a class="btn btn-line btn-sm" id="mail">Email</a>
     </div>
     <div class="grid2">
       <a class="btn btn-line btn-sm" id="church" target="_blank" rel="noopener">Send to my church</a>
@@ -39,6 +44,10 @@
     <p class="msg" id="msg" role="status" style="color:#B7D1DF"></p>
     <p class="small">The post is yours to keep or delete. Nothing was uploaded by this site.</p>
   </div>
+  <div class="appfoot">
+    <nav><a href="videos.html">Watch videos</a><a href="../team.html">Created By</a><a href="../privacy.html">Privacy</a><a href="../consent.html">Parental Consent</a><a href="https://baptize.org" target="_blank" rel="noopener">baptize.org</a></nav>
+    <p><strong>Baptize The World</strong> (not this website): <a href="https://www.youtube.com/@baptizetheworld" target="_blank" rel="noopener">YouTube</a> · <a href="https://www.facebook.com/baptizeamerica" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/baptizetheworld" target="_blank" rel="noopener">Instagram</a></p>
+  </div>
 </main>
 <script src="app.js"></script>
 <script>
@@ -54,6 +63,8 @@
     var t = $('cap').value;
     $('wa').href = 'https://wa.me/?text=' + encodeURIComponent(t);
     $('church').href = 'https://wa.me/?text=' + encodeURIComponent('Pastor, I got baptized and I told my story. ' + link);
+    $('sms').href = (/iPhone|iPad|iPod|Mac/i.test(navigator.userAgent) ? 'sms:&body=' : 'sms:?body=') + encodeURIComponent(t);
+    $('mail').href = 'mailto:?subject=' + encodeURIComponent('My Baptism Story') + '&body=' + encodeURIComponent(t);
     $('fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(link);
   }
   refresh();

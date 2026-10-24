@@ -80,3 +80,10 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;background:#0B1F2E url
 body{padding:16px 14px !important}
 .screen{max-width:440px;border-radius:20px;min-height:calc(100dvh - 32px);box-shadow:0 20px 60px rgba(0,0,0,.5)}
 @media (min-width:600px){body{padding:40px 24px !important}.screen{min-height:820px}}
+/* App footer links */
+.appfoot{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px;border-top:1px solid rgba(255,255,255,.14);padding-top:14px;margin-top:6px;font-size:13px;line-height:20px;color:rgba(255,255,255,.7)}
+.appfoot nav{display:flex;flex-wrap:wrap;gap:6px 16px}
+.appfoot a{color:#B7D1DF}
+.light .appfoot{border-color:#E2E8F0;color:#475569}.light .appfoot a{color:#1D4ED8}
+.vwrap{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#0B1220;border:1px solid rgba(255,255,255,.14)}
+.vwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
