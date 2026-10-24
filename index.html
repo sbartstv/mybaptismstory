@@ -4,154 +4,447 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>My Baptism Story</title>
+<meta name="description" content="Tell your baptism story in your own words and share it, so one baptism invites the next. Built for Baptize The World.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
 <style>
   *{box-sizing:border-box}
-  body{margin:0;font-family:system-ui,-apple-system,sans-serif;color:#1d1640;
-    background:linear-gradient(135deg,#ff9a9e 0%,#fad0c4 20%,#a1c4fd 50%,#c2e9fb 70%,#d4fc79 100%);min-height:100vh}
-  header{text-align:center;padding:48px 16px 24px}
-  h1{margin:0;font-size:2.6rem;background:linear-gradient(90deg,#ff3cac,#784ba0,#2b86c5);
-    -webkit-background-clip:text;background-clip:text;color:transparent}
-  header p{font-size:1.15rem;max-width:560px;margin:12px auto 0}
-  main{max-width:600px;margin:0 auto;padding:0 16px 48px}
-  .card{background:rgba(255,255,255,.88);border-radius:20px;padding:24px;margin:20px 0;box-shadow:0 8px 24px rgba(60,20,120,.15)}
-  h2{margin-top:0;color:#784ba0}
-  .btn{display:block;width:100%;padding:16px;margin:10px 0;border:0;border-radius:14px;font-size:1.1rem;font-weight:700;
-    color:#fff;cursor:pointer;text-align:center;text-decoration:none}
-  .pink{background:linear-gradient(90deg,#ff3cac,#ff7eb3)}
-  .purple{background:linear-gradient(90deg,#784ba0,#a06cd5)}
-  .blue{background:linear-gradient(90deg,#2b86c5,#4fc3f7)}
-  .green{background:linear-gradient(90deg,#11998e,#38ef7d)}
-  .yt{background:#ff0000}.fb{background:#1877f2}
-  .ig{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4)}
-  .x{background:#000}
-  .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .row .btn{margin:0}
-  input[type=text],input[type=email]{width:100%;padding:12px;margin:6px 0 12px;border:2px solid #c9b8f0;border-radius:10px;font-size:1rem}
-  label.check{display:flex;gap:10px;align-items:flex-start;margin:12px 0}
-  video{width:100%;border-radius:14px;margin-top:12px;display:none}
-  .hidden{display:none}
-  .prompt{background:linear-gradient(90deg,#fff1f8,#eef6ff);border-left:6px solid #ff3cac;padding:12px 14px;border-radius:10px;margin:10px 0}
-  .story{border-left:6px solid #2b86c5;padding:10px 14px;margin:12px 0;background:#f4f9ff;border-radius:10px}
-  .story b{color:#2b86c5}
-  .note{font-size:.9rem;color:#5a4f80}
-  footer{text-align:center;padding:24px;font-size:.95rem}
-  footer a{color:#784ba0;font-weight:700}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;color:#fff;
+    background:#020817 url("img-underwater-16x9.png") center/cover fixed no-repeat;min-height:100vh;padding:28px}
+  .frame{max-width:1120px;margin:0 auto;background:rgba(0,0,0,.9);border:1px solid rgba(255,255,255,.18);
+    border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+  a{color:#8EB3C7}a:hover{color:#fff}
+  .eyebrow{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);margin:0 0 10px}
+  .serif{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-.02em}
+  section{padding:48px 40px;border-top:1px solid rgba(255,255,255,.1)}
+  h2{margin:0 0 12px;font-size:44px;line-height:1}
+  p{line-height:1.6}
+  .muted{color:rgba(255,255,255,.7)}
+  .note{font-size:13px;color:rgba(255,255,255,.6);margin:10px 0 0}
+  .hidden{display:none !important}
+
+  /* Header */
+  header{display:grid;grid-template-columns:1.05fr 1fr;min-height:520px}
+  .hero-img{background:url("image1.jpeg") center/cover no-repeat;min-height:320px}
+  .hero-text{padding:48px 40px;display:flex;flex-direction:column;justify-content:center;gap:16px}
+  .brand{font-weight:700;letter-spacing:.2em;font-size:13px}
+  h1{margin:0;font-size:76px;line-height:.92}
+  .hero-text p{margin:0;font-size:18px;color:rgba(255,255,255,.88)}
+  .stats{display:flex;gap:28px;flex-wrap:wrap}
+  .stats b{display:block;font-size:26px}
+  .stats span{font-size:12px;color:rgba(255,255,255,.65)}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:9999px;
+    font:inherit;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:0;text-align:center}
+  .btn-white{background:#fff;color:#000}.btn-white:hover{background:#E2E8F0;color:#000}
+  .btn-line{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}.btn-line:hover{border-color:#fff;color:#fff}
+  .btn-blue{background:#8EB3C7;color:#020817}.btn-blue:hover{background:#B7D1DF;color:#020817}
+  .btn-row{display:flex;gap:12px;flex-wrap:wrap}
+
+  /* Baptize The World link band */
+  .btw{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:#0B1220;padding:28px 40px}
+  .btw p{margin:0;font-size:16px}
+
+  /* Age gate */
+  .age{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:640px;margin-top:20px}
+  .age .btn{min-height:64px;font-size:14px}
+
+  /* Forms */
+  .panel{background:#fff;color:#020817;border-radius:14px;padding:28px;max-width:720px;margin-top:20px}
+  .panel h3{margin:0 0 6px;font-size:34px;line-height:1}
+  .panel p{color:#475569;margin:0 0 14px;font-size:15px}
+  .panel a{color:#1D4ED8}
+  label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;margin:0 0 14px}
+  label span.opt{font-weight:400;color:#475569}
+  input[type=text],input[type=email],input[type=url],select,textarea{font:inherit;font-size:16px;color:#020817;background:#fff;
+    border:1px solid #CBD5E1;border-radius:8px;padding:12px;width:100%}
+  textarea{min-height:120px;resize:vertical}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .check{flex-direction:row;align-items:flex-start;gap:10px;font-weight:400;line-height:1.5}
+  .check input{width:18px;height:18px;margin:3px 0 0;flex-shrink:0;accent-color:#020817}
+  .count{font-size:12px;color:#475569;text-align:right;margin:-8px 0 12px}
+  .panel .btn-dark{background:#000;color:#fff}.panel .btn-dark:hover{background:#1E293B;color:#fff}
+  .panel .btn-out{background:#fff;color:#020817;border:1px solid #CBD5E1}
+  .msg{font-size:14px;min-height:20px;margin-top:10px}
+  .msg.err{color:#B91C1C}.msg.ok{color:#166534}
+  .qs{list-style:none;padding:0;margin:0 0 16px;display:grid;gap:8px}
+  .qs li{background:#F1F5F9;border-radius:8px;padding:12px 14px;font-size:15px}
+  .qs b{color:#334155}
+  video{width:100%;border-radius:10px;margin-top:12px;display:none;background:#000}
+
+  /* Carousel */
+  .carousel{position:relative;margin-top:20px}
+  .slides{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:8px;scrollbar-width:none}
+  .slides::-webkit-scrollbar{display:none}
+  .slides figure{flex:0 0 78%;max-width:640px;margin:0;scroll-snap-align:start;border-radius:14px;overflow:hidden;position:relative;aspect-ratio:3/2;background:#0B1220}
+  .slides img{width:100%;height:100%;object-fit:cover;display:block}
+  .slides figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 16px 14px;font-size:14px;
+    background:linear-gradient(to top,rgba(0,0,0,.85),transparent)}
+  .nav{display:flex;gap:10px;margin-top:14px}
+  .nav button{width:48px;height:48px;border-radius:9999px;background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .nav button:hover{border-color:#fff}
+
+  /* What they are looking for */
+  .looking{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+  .looking div{background:#0B1220;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:20px}
+  .looking b{display:block;font-size:12px;letter-spacing:.14em;color:#8EB3C7;margin-bottom:8px}
+  .looking h3{margin:0 0 6px;font-size:18px}
+  .looking p{margin:0;font-size:14px;color:rgba(255,255,255,.75)}
+
+  /* Stories reel */
+  .stories{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .reel{position:relative;height:540px;overflow:hidden;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 88%,transparent 100%);
+    mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 88%,transparent 100%)}
+  .track{display:flex;flex-direction:column;gap:14px;animation:up 40s linear infinite}
+  .reel:hover .track,.reel:focus-within .track{animation-play-state:paused}
+  @keyframes up{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+  @media (prefers-reduced-motion:reduce){.track{animation:none}.reel{overflow-y:auto}html{scroll-behavior:auto}}
+  .card{background:#0B1220;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:18px 20px;margin:0}
+  .card blockquote{margin:0 0 12px;font-size:16px;line-height:24px;color:rgba(255,255,255,.92)}
+  .card figcaption{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#8EB3C7}
+  .card figcaption a{color:#fff}
+  .card.new{border-color:#8EB3C7}
+
+  /* Connect */
+  .connect{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+  .social{display:flex;align-items:center;justify-content:center;gap:10px;min-height:64px;border-radius:12px;color:#fff;text-decoration:none;font-weight:600;font-size:15px}
+  .social:hover{color:#fff;filter:brightness(1.12)}
+  .fb{background:#1877F2}.ig{background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF,#515BD4)}.yt{background:#FF0000}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0 0;padding:0;list-style:none;counter-reset:s}
+  .steps li{counter-increment:s;background:#0B1220;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:18px;font-size:15px;line-height:1.5}
+  .steps li::before{content:"0" counter(s);display:block;font-size:12px;font-weight:700;letter-spacing:.14em;color:#8EB3C7;margin-bottom:6px}
+
+  /* People band and footer */
+  .people{padding:0;border-top:0;position:relative}
+  .people img{width:100%;height:340px;object-fit:cover;display:block}
+  .people div{position:absolute;left:40px;bottom:28px;right:40px}
+  .people h2{font-size:48px;text-shadow:0 2px 20px rgba(0,0,0,.6)}
+  footer{padding:32px 40px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:rgba(255,255,255,.7)}
+  footer nav{display:flex;gap:18px;flex-wrap:wrap}
+
+  @media (max-width:860px){
+    body{padding:12px}
+    header{grid-template-columns:1fr}
+    h1{font-size:56px}
+    section,.hero-text,.btw,footer{padding-left:20px;padding-right:20px}
+    .stories,.two,.connect,.steps{grid-template-columns:1fr}
+    .looking{grid-template-columns:1fr 1fr}
+    .slides figure{flex-basis:88%}
+    .reel{height:440px}
+    .people div{left:20px;right:20px}
+    h2,.people h2{font-size:36px}
+  }
+  @media (max-width:480px){.age,.looking{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header>
-  <h1>My Baptism Story</h1>
-  <p>Tell your story in your own words and share it, so one baptism invites the next.</p>
-</header>
+<div class="frame">
 
-<main>
-  <section class="card" id="ageCard">
-    <h2>Before you start</h2>
-    <p>Are you 18 or older?</p>
-    <div class="row">
-      <button class="btn green" id="adultYes">Yes, I am 18+</button>
-      <button class="btn pink" id="adultNo">No, I am under 18</button>
+  <!-- 1. Header: image on the left, title on the right -->
+  <header>
+    <div class="hero-img" role="img" aria-label="People celebrating an ocean baptism"></div>
+    <div class="hero-text">
+      <span class="brand">BAPTIZE THE WORLD</span>
+      <h1 class="serif">My Baptism Story</h1>
+      <p>You went into the water. Tell someone what He did. Thirty seconds, your words, so one baptism invites the next.</p>
+      <div class="stats">
+        <div><b>17,910</b><span>baptisms on Pentecost, May 24, 2026</span></div>
+        <div><b>49</b><span>countries</span></div>
+        <div><b>1</b><span>story: yours</span></div>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-white" href="#start">Tell my story</a>
+        <a class="btn btn-line" href="#stories">Read stories</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. Link to Baptize The World -->
+  <div class="btw">
+    <p>Part of the <strong>Baptize The World</strong> movement. Find a baptism near you or bring one to your church.</p>
+    <a class="btn btn-blue" href="https://baptize.org" target="_blank" rel="noopener">Visit baptize.org</a>
+  </div>
+
+  <!-- 3. Age requirement -->
+  <section id="start">
+    <p class="eyebrow">Step 1 · Before you start</p>
+    <h2 class="serif">Are you 18 or older?</h2>
+    <p class="muted">Anyone under 18 needs a parent or guardian to say yes before recording or sharing.</p>
+    <div class="age" id="ageCard">
+      <button class="btn btn-white" type="button" id="adultYes">Yes, I'm 18 or older</button>
+      <button class="btn btn-line" type="button" id="adultNo">I'm under 18</button>
+    </div>
+
+    <div class="panel hidden" id="consentCard">
+      <h3 class="serif">Parent or guardian consent</h3>
+      <p>A parent or guardian must give permission before you record or share your story.</p>
+      <div class="two">
+        <label>Parent or guardian full name<input type="text" id="parentName" autocomplete="name" placeholder="Jane Smith"></label>
+        <label>Parent or guardian email<input type="email" id="parentEmail" autocomplete="email" placeholder="parent@example.com"></label>
+      </div>
+      <label class="check"><input type="checkbox" id="consentBox"><span>I am the parent or legal guardian and I give permission for my child to record and share their baptism story. I have read the <a href="consent.html">Parental Consent</a> and <a href="privacy.html">Privacy</a> pages.</span></label>
+      <button class="btn btn-dark" type="button" id="consentGo">Continue</button>
+      <div class="msg err" id="consentMsg" role="alert"></div>
+    </div>
+    <p class="msg ok hidden" id="ageOk" role="status">You're all set. Add your story below.</p>
+  </section>
+
+  <!-- 4. Add yours -->
+  <section id="add">
+    <p class="eyebrow">Step 2 · Add yours</p>
+    <h2 class="serif">Tell it in your own words.</h2>
+    <p class="muted" id="lockedNote">Answer the age question above to unlock this step.</p>
+
+    <div class="panel hidden" id="addCard">
+      <h3 class="serif">Three questions, about ten seconds each</h3>
+      <ul class="qs">
+        <li><b>Before.</b> Why did you decide to get baptized?</li>
+        <li><b>The water.</b> What did you experience?</li>
+        <li><b>After.</b> What does this mean now, and who would you love to see in the water?</li>
+      </ul>
+
+      <p><strong>Option A: record a short video</strong> (about 30 to 60 seconds).</p>
+      <div class="btn-row">
+        <label class="btn btn-dark" for="vid" style="margin:0">Record or choose video</label>
+        <button class="btn btn-out hidden" type="button" id="share">Share my story</button>
+        <a class="btn btn-out hidden" id="download">Download video</a>
+      </div>
+      <input id="vid" type="file" accept="video/*" capture="user" hidden>
+      <video id="preview" controls playsinline></video>
+      <div class="msg" id="shareMsg" role="status"></div>
+
+      <p style="margin-top:22px"><strong>Option B: write it.</strong> It goes to the top of the stories below.</p>
+      <form id="storyForm" novalidate>
+        <div class="two">
+          <label>First name <span class="opt">(optional)</span><input id="sName" type="text" maxlength="30" autocomplete="given-name" placeholder="Maria"></label>
+          <label>City<input id="sCity" type="text" maxlength="40" placeholder="Irvine, CA"></label>
+        </div>
+        <label>This was my
+          <select id="sType"><option>First-time baptism</option><option>Baptized before (renewal)</option></select>
+        </label>
+        <label>Your story<textarea id="sStory" maxlength="280" placeholder="Why did you decide to get baptized? What happened in the water?"></textarea></label>
+        <div class="count" id="sCount" aria-live="polite">0 / 280</div>
+        <label>Link to your post <span class="opt">(optional, a YouTube, Instagram or Facebook link)</span><input id="sLink" type="url" placeholder="https://www.instagram.com/reel/..."></label>
+        <label class="check"><input type="checkbox" id="sShare"><span>Yes, Baptize The World may share my story. Leave this unchecked to keep it for friends and family only.</span></label>
+        <button class="btn btn-dark" type="submit">Add my story</button>
+        <div class="msg" id="storyMsg" role="status"></div>
+      </form>
+      <p class="note" style="color:#475569">Nothing is uploaded or stored by this site. Everything stays on this device until you choose to share it.</p>
     </div>
   </section>
 
-  <section class="card hidden" id="consentCard">
-    <h2>Parent or Guardian Consent</h2>
-    <p>If you are under 18, a parent or guardian must give permission before you record or share your story.</p>
-    <label>Parent or guardian full name
-      <input type="text" id="parentName" placeholder="Jane Smith">
-    </label>
-    <label>Parent or guardian email
-      <input type="email" id="parentEmail" placeholder="parent@example.com">
-    </label>
-    <label class="check"><input type="checkbox" id="consentBox">
-      <span>I am the parent or legal guardian and I give permission for my child to record and share their baptism story. I have read the <a href="privacy.html">Privacy and Parental Consent</a> page.</span>
-    </label>
-    <button class="btn purple" id="consentGo">Continue</button>
-    <p class="note">Nothing is uploaded or stored by this site. This form stays on this device.</p>
-  </section>
-
-  <section class="card hidden" id="recordCard">
-    <h2>Your Story</h2>
-    <div class="prompt"><b>1.</b> What was your life like before?</div>
-    <div class="prompt"><b>2.</b> How did you meet Jesus?</div>
-    <div class="prompt"><b>3.</b> Why did you choose to be baptized now?</div>
-    <p>Answer these in a short video, about 60 seconds.</p>
-    <label class="btn pink" for="vid">Record or Choose Your Video</label>
-    <input id="vid" type="file" accept="video/*" capture="user" hidden>
-    <video id="preview" controls playsinline></video>
-    <button class="btn purple hidden" id="share">Share My Story</button>
-    <a class="btn blue hidden" id="download">Download Video</a>
-  </section>
-
-  <section class="card hidden" id="linksCard">
-    <h2>Post It Here</h2>
-    <p>Download your video, then upload it on your favorite app.</p>
-    <div class="row">
-      <a class="btn yt" href="https://www.youtube.com/upload" target="_blank" rel="noopener">YouTube</a>
-      <a class="btn fb" id="fbLink" href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
-      <a class="btn ig" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
-      <a class="btn x" id="xLink" href="https://x.com/" target="_blank" rel="noopener">X</a>
+  <!-- 5. Photo carousel -->
+  <section id="photos">
+    <p class="eyebrow">In the water</p>
+    <h2 class="serif">One baptism invites the next.</h2>
+    <div class="carousel">
+      <div class="slides" id="slides" tabindex="0" aria-label="Baptism photos, scroll sideways">
+        <figure><img src="image2.jpeg" alt="A woman being baptized in the ocean, hands raised" loading="lazy"><figcaption>Coming up out of the water</figcaption></figure>
+        <figure><img src="image3.jpeg" alt="Thousands gathered along a shoreline for baptisms" loading="lazy"><figcaption>Thousands on the shore</figcaption></figure>
+        <figure><img src="image4.jpeg" alt="Women celebrating in a baptism tank" loading="lazy"><figcaption>Joy in the tank</figcaption></figure>
+        <figure><img src="image0.jpeg" alt="A young person being baptized in a tub" loading="lazy"><figcaption>A first step</figcaption></figure>
+        <figure><img src="img-testimony-3x2.jpg" alt="A newly baptized man telling his story into a phone" loading="lazy"><figcaption>Telling the story, towel still wet</figcaption></figure>
+        <figure><img src="img-smallgroup-3x2.jpg" alt="A small group reading the Bible together in a living room" loading="lazy"><figcaption>The first forty days, together</figcaption></figure>
+      </div>
+      <div class="nav">
+        <button type="button" id="prev" aria-label="Previous photo"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button type="button" id="next" aria-label="Next photo"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
     </div>
-    <p class="note">On a phone, the Share My Story button sends the video straight into these apps.</p>
   </section>
 
-  <section class="card">
-    <h2>Stories Like Yours</h2>
-    <p class="note">Sample stories for demo purposes only. Not real people.</p>
-    <div class="story"><b>Maria, 34</b><br>I spent years feeling alone. A friend invited me to church and I finally felt at home. Today I said yes.</div>
-    <div class="story"><b>James, 52</b><br>I put this off for decades. My granddaughter asked me why, and I had no answer. So here I am.</div>
-    <div class="story"><b>Sam, 16 (with parent consent)</b><br>My youth group showed me what real friendship looks like. I wanted my whole family to see this day.</div>
+  <!-- 6. What they are looking for -->
+  <section id="looking">
+    <p class="eyebrow">What we're looking for</p>
+    <h2 class="serif">Short, real, in your own words.</h2>
+    <div class="looking">
+      <div><b>01</b><h3>Your words</h3><p>No script and no camera crew. Just you telling what happened.</p></div>
+      <div><b>02</b><h3>About 30 seconds</h3><p>Before, the water, after. Ten seconds each is enough.</p></div>
+      <div><b>03</b><h3>An invitation</h3><p>Name someone you'd love to see in the water next.</p></div>
+      <div><b>04</b><h3>Your yes</h3><p>We only share what you say yes to. Under 18 needs a parent.</p></div>
+    </div>
   </section>
-</main>
 
-<footer>
-  <a href="privacy.html">Privacy and Parental Consent</a><br>
-  My Baptism Story. FaithTech SoCal Hackathon 2026.
-</footer>
+  <!-- 7. Stories -->
+  <section id="stories">
+    <div class="stories">
+      <div>
+        <p class="eyebrow">Stories</p>
+        <h2 class="serif">They went into the water.</h2>
+        <p class="muted">Thirty seconds, in their own words. Hover or tap the reel to pause.</p>
+        <a class="btn btn-white" href="#start" style="margin-top:12px">Add yours</a>
+        <p class="note">Sample stories for the demo. Real stories appear only with the person's consent.</p>
+      </div>
+      <div class="reel" aria-label="Baptism stories, scrolling">
+        <div class="track" id="track"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Connect -->
+  <section id="connect">
+    <p class="eyebrow">Record it, post it, link it</p>
+    <h2 class="serif">Share where your people are.</h2>
+    <p class="muted">Record your story in the app you already use, then come back and paste the link in Add yours so it shows up here.</p>
+    <div class="connect">
+      <a class="social fb" href="https://www.facebook.com/" target="_blank" rel="noopener" id="fbLink">Connect to Facebook</a>
+      <a class="social ig" href="https://www.instagram.com/" target="_blank" rel="noopener">Connect to Instagram</a>
+      <a class="social yt" href="https://www.youtube.com/upload" target="_blank" rel="noopener">Connect to YouTube</a>
+    </div>
+    <ol class="steps">
+      <li>Record your story on Facebook, Instagram or YouTube. Add #MyBaptismStory and #BaptizeTheWorld.</li>
+      <li>Copy the link to your post.</li>
+      <li>Come back, paste it in Add yours, and your story joins the reel.</li>
+    </ol>
+    <p class="note">Follow Baptize The World on <a href="https://www.instagram.com/baptizetheworld" target="_blank" rel="noopener">Instagram</a>.</p>
+  </section>
+
+  <!-- 9. The people -->
+  <section class="people">
+    <img src="img-cove-baptism-3x2.png" alt="A baptism in the surf with a crowd cheering from the rocks" loading="lazy">
+    <div><h2 class="serif">These are the people.</h2></div>
+  </section>
+
+  <footer>
+    <span>My Baptism Story · Built for Baptize The World · FaithTech SoCal Hackathon 2026</span>
+    <nav>
+      <a href="privacy.html">Privacy</a>
+      <a href="consent.html">Parental Consent</a>
+      <a href="https://baptize.org" target="_blank" rel="noopener">baptize.org</a>
+    </nav>
+  </footer>
+</div>
 
 <script>
-  const $ = id => document.getElementById(id);
-  const show = id => $(id).classList.remove('hidden');
-  const hide = id => $(id).classList.add('hidden');
-  const pageUrl = location.href.split('#')[0];
-  const shareText = 'I got baptized. Here is my story. Share yours: ' + pageUrl;
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var show = function(id){ $(id).classList.remove('hidden'); };
+  var hide = function(id){ $(id).classList.add('hidden'); };
+  var pageUrl = location.href.split('#')[0];
+  var shareText = 'I got baptized. Here is my story. Share yours: ' + pageUrl + ' #MyBaptismStory #BaptizeTheWorld';
 
   $('fbLink').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
-  $('xLink').href = 'https://x.com/intent/post?text=' + encodeURIComponent(shareText);
 
-  function unlock(){ hide('ageCard'); hide('consentCard'); show('recordCard'); show('linksCard'); }
-
+  // Age gate
+  function unlock(){
+    hide('ageCard'); hide('consentCard'); show('ageOk');
+    hide('lockedNote'); show('addCard');
+    $('add').scrollIntoView();
+  }
   $('adultYes').onclick = unlock;
-  $('adultNo').onclick = () => { hide('ageCard'); show('consentCard'); };
-  $('consentGo').onclick = () => {
-    const name = $('parentName').value.trim();
-    const email = $('parentEmail').value.trim();
-    if (!name || !email.includes('@') || !$('consentBox').checked) {
-      alert('Please enter the parent or guardian name and email and check the consent box.');
+  $('adultNo').onclick = function(){ hide('ageCard'); show('consentCard'); };
+  $('consentGo').onclick = function(){
+    var name = $('parentName').value.trim();
+    var email = $('parentEmail').value.trim();
+    if (!name || email.indexOf('@') < 1 || !$('consentBox').checked){
+      $('consentMsg').textContent = 'Please enter the parent or guardian name and email, and check the consent box.';
       return;
     }
+    $('consentMsg').textContent = '';
     unlock();
   };
 
-  let file;
-  $('vid').addEventListener('change', () => {
+  // Video record, share, download
+  var file;
+  $('vid').addEventListener('change', function(){
     file = $('vid').files[0];
     if (!file) return;
-    const url = URL.createObjectURL(file);
+    var url = URL.createObjectURL(file);
     $('preview').src = url; $('preview').style.display = 'block';
     $('download').href = url; $('download').download = file.name || 'my-baptism-story.mp4';
     show('share'); show('download');
   });
-
-  $('share').onclick = async () => {
-    try {
-      if (navigator.canShare && navigator.canShare({ files: [file] })) {
-        await navigator.share({ files: [file], title: 'My Baptism Story', text: shareText });
-      } else {
-        alert('Video sharing works on phones. Download your video and use the links below.');
-      }
-    } catch (e) {}
+  $('share').onclick = function(){
+    if (navigator.canShare && navigator.canShare({ files: [file] })){
+      navigator.share({ files: [file], title: 'My Baptism Story', text: shareText }).catch(function(){});
+    } else {
+      $('shareMsg').textContent = 'Video sharing works on phones. Download your video and use the Connect buttons below.';
+    }
   };
+
+  // Photo carousel
+  var slides = $('slides');
+  function step(dir){ slides.scrollBy({ left: dir * slides.clientWidth * 0.8, behavior: 'smooth' }); }
+  $('prev').onclick = function(){ step(-1); };
+  $('next').onclick = function(){ step(1); };
+  var auto = setInterval(function(){
+    if (slides.scrollLeft + slides.clientWidth >= slides.scrollWidth - 4) slides.scrollTo({ left: 0, behavior: 'smooth' });
+    else step(1);
+  }, 5000);
+  ['pointerdown','focusin','wheel'].forEach(function(ev){ slides.addEventListener(ev, function(){ clearInterval(auto); }, { once: true }); });
+
+  // Stories reel (sample stories)
+  var stories = [
+    {q:"I'd been carrying everything alone. Under the water it went quiet, and when I came up I knew I wasn't alone anymore.", n:"Maria", c:"Irvine, CA", t:"First-time baptism"},
+    {q:"My daughter got baptized last year and never stopped asking me. Today I finally said yes. She was standing on the shore.", n:"Daniel", c:"Long Beach, CA", t:"First-time baptism"},
+    {q:"I was baptized as a baby but never made it my own. This time I chose it. It felt like coming home.", n:"Grace", c:"Manila, Philippines", t:"Baptized before (renewal)"},
+    {q:"I walked up to the beach just to watch. Someone in a Baptize shirt asked if I wanted to pray. Ten minutes later I was in the ocean.", n:"Luis", c:"San Diego, CA", t:"First-time baptism"},
+    {q:"Two years sober. I wanted the people who helped me get here to see this day. They were all in the water with me.", n:"James", c:"Phoenix, AZ", t:"First-time baptism"},
+    {q:"The water was freezing and I didn't care. I came up laughing. My whole small group was cheering.", n:"Ana", c:"São Paulo, Brazil", t:"First-time baptism"},
+    {q:"I'm seventy-one. People told me it was too late. It wasn't.", n:"Ruth", c:"Nashville, TN", t:"First-time baptism"},
+    {q:"I went in with my brother. We hadn't talked in five years. We came out holding on to each other.", n:"Joon", c:"Seoul, South Korea", t:"Baptized before (renewal)"}
+  ];
+  var track = $('track');
+  function linkLabel(u){
+    if (/youtube\.com|youtu\.be/i.test(u)) return 'Watch on YouTube';
+    if (/instagram\.com/i.test(u)) return 'Watch on Instagram';
+    if (/facebook\.com|fb\.watch/i.test(u)) return 'Watch on Facebook';
+    return '';
+  }
+  function card(s, isNew, hidden){
+    var f = document.createElement('figure');
+    f.className = 'card' + (isNew ? ' new' : '');
+    var b = document.createElement('blockquote');
+    b.textContent = '“' + s.q + '”';
+    var cap = document.createElement('figcaption');
+    cap.textContent = (s.n || 'Someone') + ' · ' + s.c + ' · ' + s.t;
+    if (s.l){
+      var a = document.createElement('a');
+      a.href = s.l; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = linkLabel(s.l);
+      if (hidden) a.tabIndex = -1;
+      cap.appendChild(document.createTextNode(' · '));
+      cap.appendChild(a);
+    }
+    f.appendChild(b); f.appendChild(cap);
+    if (hidden) f.setAttribute('aria-hidden', 'true');
+    return f;
+  }
+  function render(newIndex){
+    track.innerHTML = '';
+    for (var r = 0; r < 2; r++){
+      stories.forEach(function(s, i){ track.appendChild(card(s, i === newIndex, r === 1)); });
+    }
+    track.style.animationDuration = (stories.length * 5) + 's';
+  }
+  render(-1);
+
+  // Add yours form
+  var sStory = $('sStory');
+  sStory.addEventListener('input', function(){ $('sCount').textContent = sStory.value.length + ' / 280'; });
+  $('storyForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var msg = $('storyMsg');
+    var city = $('sCity').value.trim();
+    var text = sStory.value.trim();
+    var link = $('sLink').value.trim();
+    msg.className = 'msg err';
+    if (!city){ msg.textContent = 'Please add your city.'; return; }
+    if (text.length < 10){ msg.textContent = 'Please write a sentence or two.'; return; }
+    if (link && (!/^https:\/\//i.test(link) || !linkLabel(link))){ msg.textContent = 'Please paste a full YouTube, Instagram or Facebook link.'; return; }
+    stories.unshift({ q: text, n: $('sName').value.trim(), c: city, t: $('sType').value, l: link });
+    render(0);
+    this.reset();
+    $('sCount').textContent = '0 / 280';
+    msg.className = 'msg ok';
+    msg.textContent = 'Thank you. Your story is at the top of the reel.';
+    $('stories').scrollIntoView();
+  });
+})();
 </script>
 </body>
 </html>
