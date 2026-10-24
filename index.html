@@ -381,6 +381,10 @@
 
   // Stories reel (sample stories)
   var stories = [
+    {h:"Commitment to follow Jesus", q:"For a long time I called myself a Christian, but I wasn\u2019t really following Jesus. I was kind of sitting on the fence. I finally decided I was done with that, and wanted to make an outward declaration of my faith in Jesus, so I got baptized. I was nervous going into the water, but as soon as I went under, I felt this peace, like God was saying, \u2018I\u2019ve got you.\u2019 I came up feeling like I had a fresh start and felt the Lord\u2019s presence like I\u2019ve never felt before. If you\u2019ve been thinking about it, take the step. Jesus will meet you there."},
+    {h:"Taking my faith public", q:"I believed in Jesus for years, but I kept it private because I was scared of what people would think. Then I felt God nudging me to say it out loud. Standing in front of my church, I was shaking, but when I came up out of the water and everyone cheered, I felt so loved. My faith isn\u2019t a secret anymore, and it\u2019s actually led to real conversations with my friends. If you believe, don\u2019t hide it. Get baptized."},
+    {h:"A fresh start", q:"I was carrying a lot of guilt and shame, and I honestly thought I was too far gone. But Jesus kept showing up through people who loved me. When I got baptized, I cried going under, and when I came up, it felt like the weight was just gone. I\u2019m a new person now, and I have a whole church family around me. If you feel like you\u2019ve messed up too much, you haven\u2019t. Jesus saves, and it\u2019s never too late."},
+    {h:"Gratitude for what Jesus did", q:"I kept thinking about what Jesus did for me on the cross. He took my place, and I couldn\u2019t stop thinking about how undeserved that is. Getting baptized today was my way of saying thank you. Going under the water felt like joining Him in His death, and coming up felt like joining Him in His new life. I\u2019m still smiling. If you believe that Jesus died and rose again for you, don\u2019t just believe it quietly. Get baptized and celebrate it."},
     {q:"I'd been carrying everything alone. Under the water it went quiet, and when I came up I knew I wasn't alone anymore.", n:"Maria", c:"Irvine, CA", t:"First-time baptism"},
     {q:"My daughter got baptized last year and never stopped asking me. Today I finally said yes. She was standing on the shore.", n:"Daniel", c:"Long Beach, CA", t:"First-time baptism"},
     {q:"I was baptized as a baby but never made it my own. This time I chose it. It felt like coming home.", n:"Grace", c:"Manila, Philippines", t:"Baptized before (renewal)"},
@@ -403,7 +407,7 @@
     var b = document.createElement('blockquote');
     b.textContent = '“' + s.q + '”';
     var cap = document.createElement('figcaption');
-    cap.textContent = (s.n || 'Someone') + ' · ' + s.c + ' · ' + s.t;
+    cap.textContent = s.h ? s.h : (s.n || 'Someone') + ' · ' + s.c + ' · ' + s.t;
     if (s.l){
       var a = document.createElement('a');
       a.href = s.l; a.target = '_blank'; a.rel = 'noopener';
