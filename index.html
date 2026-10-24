@@ -119,7 +119,7 @@
   .connect{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
   .social{display:flex;align-items:center;justify-content:center;gap:10px;min-height:64px;border-radius:12px;color:#fff;text-decoration:none;font-weight:600;font-size:15px}
   .social:hover{color:#fff;filter:brightness(1.12)}
-  .fb{background:#1877F2}.ig{background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF,#515BD4)}.yt{background:#FF0000}
+  .fb{background:#1877F2}.wa{background:#1F8F4E}.sms{background:#334155}.mail{background:#0B1220;border:1px solid rgba(255,255,255,.3)}.ig{background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF,#515BD4)}.yt{background:#FF0000}
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0 0;padding:0;list-style:none;counter-reset:s}
   .steps li{counter-increment:s;background:#0B1220;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:18px;font-size:15px;line-height:1.5}
   .steps li::before{content:"0" counter(s);display:block;font-size:12px;font-weight:700;letter-spacing:.14em;color:#8EB3C7;margin-bottom:6px}
@@ -299,9 +299,12 @@
       <a class="social fb" href="https://www.facebook.com/" target="_blank" rel="noopener" id="fbLink">Connect to Facebook</a>
       <a class="social ig" href="https://www.instagram.com/" target="_blank" rel="noopener">Connect to Instagram</a>
       <a class="social yt" href="https://www.youtube.com/upload" target="_blank" rel="noopener">Connect to YouTube</a>
+      <a class="social wa" id="waLink" href="https://wa.me/" target="_blank" rel="noopener">Share on WhatsApp</a>
+      <a class="social sms" id="smsLink" href="sms:">Send by text (SMS)</a>
+      <a class="social mail" id="mailLink" href="mailto:">Send by email</a>
     </div>
     <ol class="steps">
-      <li>Record your story on Facebook, Instagram or YouTube. Add #MyBaptismStory and #BaptizeTheWorld.</li>
+      <li>Record your story on Facebook, Instagram or YouTube, or send it by WhatsApp, text or email. Add #MyBaptismStory and #BaptizeTheWorld.</li>
       <li>Copy the link to your post.</li>
       <li>Come back, paste it in Add yours, and your story joins the reel.</li>
     </ol>
@@ -351,6 +354,9 @@
   var shareText = 'I got baptized. Here is my story. Share yours: ' + pageUrl + ' #MyBaptismStory #BaptizeTheWorld';
 
   $('fbLink').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+  $('waLink').href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+  $('smsLink').href = (/iPhone|iPad|iPod|Mac/i.test(navigator.userAgent) ? 'sms:&body=' : 'sms:?body=') + encodeURIComponent(shareText);
+  $('mailLink').href = 'mailto:?subject=' + encodeURIComponent('My Baptism Story') + '&body=' + encodeURIComponent(shareText);
 
   // Age gate
   function unlock(){
