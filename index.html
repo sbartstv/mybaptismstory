@@ -299,6 +299,7 @@
       <a class="social fb" href="https://www.facebook.com/" target="_blank" rel="noopener" id="fbLink">Connect to Facebook</a>
       <a class="social ig" href="https://www.instagram.com/" target="_blank" rel="noopener">Connect to Instagram</a>
       <a class="social yt" href="https://www.youtube.com/upload" target="_blank" rel="noopener">Connect to YouTube</a>
+      <a class="social wa" id="pastorLink" href="https://wa.me/" target="_blank" rel="noopener">Send to my pastor (WhatsApp)</a>
       <a class="social wa" id="waLink" href="https://wa.me/" target="_blank" rel="noopener">Share on WhatsApp</a>
       <a class="social sms" id="smsLink" href="sms:">Send by text (SMS)</a>
       <a class="social mail" id="mailLink" href="mailto:">Send by email</a>
@@ -334,10 +335,11 @@
   </section>
 
   <footer>
-    <span>My Baptism Story · Built for Baptize The World · FaithTech SoCal Hackathon 2026</span>
+    <span>My Baptism Story · Built for Baptize The World · <a href="team.html">FaithTech SoCal X Baptize Hackathon 2026</a><br>Built with Claude (Anthropic). Hosted on GitHub Pages. Fonts from Google Fonts. Some images are AI-generated.</span>
     <nav>
       <a href="privacy.html">Privacy</a>
       <a href="consent.html">Parental Consent</a>
+      <a href="team.html">Created By</a>
       <a href="https://www.facebook.com/baptizeamerica" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.youtube.com/@baptizetheworld" target="_blank" rel="noopener">YouTube</a>
       <a href="https://baptize.org" target="_blank" rel="noopener">baptize.org</a> <span>(A global movement uniting churches in baptism on Pentecost Sunday. Host at Your Church, May 16, 2027)</span>
@@ -354,6 +356,7 @@
   var shareText = 'I got baptized. Here is my story. Share yours: ' + pageUrl + ' #MyBaptismStory #BaptizeTheWorld';
 
   $('fbLink').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+  $('pastorLink').href = 'https://wa.me/?text=' + encodeURIComponent('Pastor, I got baptized and I told my story. Here it is: ' + pageUrl);
   $('waLink').href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
   $('smsLink').href = (/iPhone|iPad|iPod|Mac/i.test(navigator.userAgent) ? 'sms:&body=' : 'sms:?body=') + encodeURIComponent(shareText);
   $('mailLink').href = 'mailto:?subject=' + encodeURIComponent('My Baptism Story') + '&body=' + encodeURIComponent(shareText);

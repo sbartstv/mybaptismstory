@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Created By · My Baptism Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;color:#fff;background:#0B1F2E;min-height:100vh;padding:120px 48px}
+  body::before{content:"";position:fixed;inset:0;z-index:-1;background:#0B1F2E url("img-underwater-16x9.png") center/cover no-repeat}
+  .frame{max-width:900px;margin:0 auto;background:rgba(0,0,0,.9);border:1px solid rgba(255,255,255,.18);border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+  a{color:#8EB3C7}a:hover{color:#fff}
+  .top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:22px 40px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .top a.home{color:#fff;text-decoration:none;font-family:'Instrument Serif',serif;font-style:italic;font-size:26px}
+  .top nav{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
+  .top nav a[aria-current]{color:#fff;font-weight:600}
+  main{padding:44px 40px 48px}
+  .eyebrow{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);margin:0 0 10px}
+  h1{margin:0 0 10px;font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:56px;line-height:1;letter-spacing:-.02em}
+  h2{margin:36px 0 10px;font-size:20px}
+  p,li{line-height:1.65;color:rgba(255,255,255,.88);font-size:16px}
+  ul{padding-left:22px}
+  .lede{font-size:18px}
+  .box{background:#0B1220;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:20px 22px;margin:22px 0}
+  .box p{margin:0}
+  .muted{color:rgba(255,255,255,.6);font-size:14px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:9999px;font:inherit;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:0;background:#fff;color:#000}
+  .btn:hover{background:#E2E8F0;color:#000}
+  .btn-line{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}.btn-line:hover{background:transparent;color:#fff;border-color:#fff}
+  .panel{background:#fff;color:#020817;border-radius:14px;padding:28px;margin-top:20px}
+  .panel p,.panel li{color:#334155}
+  .panel h2{margin-top:0;color:#020817}
+  label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;margin:0 0 14px;color:#020817}
+  input[type=text],input[type=email],input[type=date]{font:inherit;font-size:16px;color:#020817;background:#fff;border:1px solid #CBD5E1;border-radius:8px;padding:12px;width:100%}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .check{flex-direction:row;align-items:flex-start;gap:10px;font-weight:400;line-height:1.5}
+  .check input{width:18px;height:18px;margin:3px 0 0;flex-shrink:0;accent-color:#020817}
+  .panel .btn{background:#000;color:#fff}.panel .btn:hover{background:#1E293B}
+  .msg{font-size:14px;min-height:20px;margin-top:10px}.msg.err{color:#B91C1C}.msg.ok{color:#166534}
+  .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+  footer{padding:28px 40px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:rgba(255,255,255,.7)}
+  footer nav{display:flex;gap:18px;flex-wrap:wrap}
+  @media (max-width:860px){body{padding:40px 22px}.top,main,footer{padding-left:20px;padding-right:20px}h1{font-size:42px}.two{grid-template-columns:1fr}}
+  @media print{body{padding:0;background:#fff;color:#000}body::before,.top,footer,.noprint{display:none}.frame{border:0;box-shadow:none;background:#fff}p,li,h1,h2{color:#000}}
+  .team{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+  .member{background:#0B1220;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;gap:4px}
+  .member strong{font-size:20px}
+  .role{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#8EB3C7}
+  @media (max-width:520px){.team{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="top">
+    <a class="home" href="index.html">My Baptism Story</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="consent.html">Parental Consent</a>
+      <a href="team.html" aria-current="page">Created By</a>
+      <a href="https://baptize.org" target="_blank" rel="noopener">baptize.org</a>
+    </nav>
+  </div>
+  <main>
+    <p class="eyebrow">FaithTech SoCal X Baptize Hackathon · Saturday, October 24, 2026</p>
+    <h1>Created by</h1>
+    <p class="lede">My Baptism Story was built in one day at the FaithTech SoCal X Baptize Hackathon at The Robertson Triangle, 3390 Robertson Pl, Los Angeles.</p>
+
+    <h2>The team</h2>
+    <div class="team">
+      <div class="member"><span class="role">Project Lead</span><strong>Nebiyat Tegegn</strong></div>
+      <div class="member"><span class="role">Developer</span><strong>Cliff Baldridge</strong></div>
+      <div class="member"><span class="role">Designer</span><strong>Robart Harmless</strong></div>
+      <div class="member"><span class="role">Church Voice</span><strong>John Knox</strong></div>
+    </div>
+
+    <h2>Our challenge: Track 2, testimony sharing</h2>
+    <div class="box"><p>How might we help someone who was just baptized tell their story in their own words and share it, without anyone at their church having to produce it, so that one baptism invites the next?</p></div>
+
+    <h2>What we built</h2>
+    <p>We help newly baptized people tell their story in their own words by giving them a phone-first page that keeps everything on their device until they choose to share it.</p>
+    <ul>
+      <li>An age check, with parent or guardian consent for anyone under 18.</li>
+      <li>Three short questions: before, the water and after.</li>
+      <li>Record a video or write the story, then share it to Facebook, Instagram, YouTube, WhatsApp, text or email, or send it to a pastor.</li>
+      <li>Nothing is uploaded or stored by the site. Only sample stories are shown.</li>
+    </ul>
+
+    <h2>The hackathon</h2>
+    <p>One day to build for the global church. Teams picked one of three challenges from Baptize The World, a global movement uniting churches in baptism on Pentecost Sunday, and shipped something real by code freeze at 4:00 PM.</p>
+    <ul>
+      <li><strong>Track 1:</strong> Mobile-first church onboarding.</li>
+      <li><strong>Track 2:</strong> Testimony sharing.</li>
+      <li><strong>Track 3:</strong> Post-baptism discipleship.</li>
+    </ul>
+    <p>Every team moved through the Create Cycle: Lament, Discern, Build and Steward. On Pentecost 2026, Baptize The World counted 17,910 baptisms in 49 countries across more than 1,600 churches. The next Pentecost is May 16, 2027.</p>
+
+    <div class="btn-row"><a class="btn" href="index.html">See the app</a><a class="btn btn-line" href="https://baptize.org" target="_blank" rel="noopener">Visit baptize.org</a></div>
+  </main>
+  <footer>
+    <span>My Baptism Story · Built for Baptize The World · <a href="team.html">FaithTech SoCal X Baptize Hackathon 2026</a><br>Built with Claude (Anthropic). Hosted on GitHub Pages. Fonts from Google Fonts. Some images are AI-generated.</span>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="consent.html">Parental Consent</a>
+      <a href="team.html">Created By</a>
+    </nav>
+  </footer>
+</div>
+</body>
+</html>
