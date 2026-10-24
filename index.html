@@ -5,54 +5,153 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>My Baptism Story</title>
 <style>
-  body{margin:0;font-family:system-ui,sans-serif;background:#eaf4fb;color:#123;text-align:center}
-  main{max-width:520px;margin:0 auto;padding:48px 16px}
-  h1{font-size:2.2rem;margin:0 0 8px;color:#0b5c8a}
-  p{font-size:1.1rem;line-height:1.5}
-  .btn{display:block;width:100%;box-sizing:border-box;padding:16px;margin:12px 0;border:0;border-radius:12px;font-size:1.1rem;background:#0b5c8a;color:#fff;cursor:pointer;text-decoration:none}
-  .btn.alt{background:#fff;color:#0b5c8a;border:2px solid #0b5c8a}
-  video{width:100%;border-radius:12px;margin-top:12px;display:none}
-  small{color:#567}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,sans-serif;color:#1d1640;
+    background:linear-gradient(135deg,#ff9a9e 0%,#fad0c4 20%,#a1c4fd 50%,#c2e9fb 70%,#d4fc79 100%);min-height:100vh}
+  header{text-align:center;padding:48px 16px 24px}
+  h1{margin:0;font-size:2.6rem;background:linear-gradient(90deg,#ff3cac,#784ba0,#2b86c5);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  header p{font-size:1.15rem;max-width:560px;margin:12px auto 0}
+  main{max-width:600px;margin:0 auto;padding:0 16px 48px}
+  .card{background:rgba(255,255,255,.88);border-radius:20px;padding:24px;margin:20px 0;box-shadow:0 8px 24px rgba(60,20,120,.15)}
+  h2{margin-top:0;color:#784ba0}
+  .btn{display:block;width:100%;padding:16px;margin:10px 0;border:0;border-radius:14px;font-size:1.1rem;font-weight:700;
+    color:#fff;cursor:pointer;text-align:center;text-decoration:none}
+  .pink{background:linear-gradient(90deg,#ff3cac,#ff7eb3)}
+  .purple{background:linear-gradient(90deg,#784ba0,#a06cd5)}
+  .blue{background:linear-gradient(90deg,#2b86c5,#4fc3f7)}
+  .green{background:linear-gradient(90deg,#11998e,#38ef7d)}
+  .yt{background:#ff0000}.fb{background:#1877f2}
+  .ig{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4)}
+  .x{background:#000}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .row .btn{margin:0}
+  input[type=text],input[type=email]{width:100%;padding:12px;margin:6px 0 12px;border:2px solid #c9b8f0;border-radius:10px;font-size:1rem}
+  label.check{display:flex;gap:10px;align-items:flex-start;margin:12px 0}
+  video{width:100%;border-radius:14px;margin-top:12px;display:none}
+  .hidden{display:none}
+  .prompt{background:linear-gradient(90deg,#fff1f8,#eef6ff);border-left:6px solid #ff3cac;padding:12px 14px;border-radius:10px;margin:10px 0}
+  .story{border-left:6px solid #2b86c5;padding:10px 14px;margin:12px 0;background:#f4f9ff;border-radius:10px}
+  .story b{color:#2b86c5}
+  .note{font-size:.9rem;color:#5a4f80}
+  footer{text-align:center;padding:24px;font-size:.95rem}
+  footer a{color:#784ba0;font-weight:700}
 </style>
 </head>
 <body>
-<main>
+<header>
   <h1>My Baptism Story</h1>
   <p>Tell your story in your own words and share it, so one baptism invites the next.</p>
+</header>
 
-  <label class="btn" for="vid">Record or Choose Your Video</label>
-  <input id="vid" type="file" accept="video/*" capture="user" hidden>
-  <video id="preview" controls playsinline></video>
+<main>
+  <section class="card" id="ageCard">
+    <h2>Before you start</h2>
+    <p>Are you 18 or older?</p>
+    <div class="row">
+      <button class="btn green" id="adultYes">Yes, I am 18+</button>
+      <button class="btn pink" id="adultNo">No, I am under 18</button>
+    </div>
+  </section>
 
-  <button class="btn" id="share" hidden>Share My Story</button>
-  <a class="btn alt" id="download" hidden>Download Video</a>
+  <section class="card hidden" id="consentCard">
+    <h2>Parent or Guardian Consent</h2>
+    <p>If you are under 18, a parent or guardian must give permission before you record or share your story.</p>
+    <label>Parent or guardian full name
+      <input type="text" id="parentName" placeholder="Jane Smith">
+    </label>
+    <label>Parent or guardian email
+      <input type="email" id="parentEmail" placeholder="parent@example.com">
+    </label>
+    <label class="check"><input type="checkbox" id="consentBox">
+      <span>I am the parent or legal guardian and I give permission for my child to record and share their baptism story. I have read the <a href="privacy.html">Privacy and Parental Consent</a> page.</span>
+    </label>
+    <button class="btn purple" id="consentGo">Continue</button>
+    <p class="note">Nothing is uploaded or stored by this site. This form stays on this device.</p>
+  </section>
 
-  <p><small>Coming soon: guided prompts and story cards. FaithTech SoCal Hackathon 2026.</small></p>
+  <section class="card hidden" id="recordCard">
+    <h2>Your Story</h2>
+    <div class="prompt"><b>1.</b> What was your life like before?</div>
+    <div class="prompt"><b>2.</b> How did you meet Jesus?</div>
+    <div class="prompt"><b>3.</b> Why did you choose to be baptized now?</div>
+    <p>Answer these in a short video, about 60 seconds.</p>
+    <label class="btn pink" for="vid">Record or Choose Your Video</label>
+    <input id="vid" type="file" accept="video/*" capture="user" hidden>
+    <video id="preview" controls playsinline></video>
+    <button class="btn purple hidden" id="share">Share My Story</button>
+    <a class="btn blue hidden" id="download">Download Video</a>
+  </section>
+
+  <section class="card hidden" id="linksCard">
+    <h2>Post It Here</h2>
+    <p>Download your video, then upload it on your favorite app.</p>
+    <div class="row">
+      <a class="btn yt" href="https://www.youtube.com/upload" target="_blank" rel="noopener">YouTube</a>
+      <a class="btn fb" id="fbLink" href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
+      <a class="btn ig" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn x" id="xLink" href="https://x.com/" target="_blank" rel="noopener">X</a>
+    </div>
+    <p class="note">On a phone, the Share My Story button sends the video straight into these apps.</p>
+  </section>
+
+  <section class="card">
+    <h2>Stories Like Yours</h2>
+    <p class="note">Sample stories for demo purposes only. Not real people.</p>
+    <div class="story"><b>Maria, 34</b><br>I spent years feeling alone. A friend invited me to church and I finally felt at home. Today I said yes.</div>
+    <div class="story"><b>James, 52</b><br>I put this off for decades. My granddaughter asked me why, and I had no answer. So here I am.</div>
+    <div class="story"><b>Sam, 16 (with parent consent)</b><br>My youth group showed me what real friendship looks like. I wanted my whole family to see this day.</div>
+  </section>
 </main>
+
+<footer>
+  <a href="privacy.html">Privacy and Parental Consent</a><br>
+  My Baptism Story. FaithTech SoCal Hackathon 2026.
+</footer>
+
 <script>
-  const input = document.getElementById('vid');
-  const preview = document.getElementById('preview');
-  const shareBtn = document.getElementById('share');
-  const dl = document.getElementById('download');
+  const $ = id => document.getElementById(id);
+  const show = id => $(id).classList.remove('hidden');
+  const hide = id => $(id).classList.add('hidden');
+  const pageUrl = location.href.split('#')[0];
+  const shareText = 'I got baptized. Here is my story. Share yours: ' + pageUrl;
+
+  $('fbLink').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+  $('xLink').href = 'https://x.com/intent/post?text=' + encodeURIComponent(shareText);
+
+  function unlock(){ hide('ageCard'); hide('consentCard'); show('recordCard'); show('linksCard'); }
+
+  $('adultYes').onclick = unlock;
+  $('adultNo').onclick = () => { hide('ageCard'); show('consentCard'); };
+  $('consentGo').onclick = () => {
+    const name = $('parentName').value.trim();
+    const email = $('parentEmail').value.trim();
+    if (!name || !email.includes('@') || !$('consentBox').checked) {
+      alert('Please enter the parent or guardian name and email and check the consent box.');
+      return;
+    }
+    unlock();
+  };
+
   let file;
-  input.addEventListener('change', () => {
-    file = input.files[0];
+  $('vid').addEventListener('change', () => {
+    file = $('vid').files[0];
     if (!file) return;
     const url = URL.createObjectURL(file);
-    preview.src = url; preview.style.display = 'block';
-    dl.href = url; dl.download = file.name || 'my-baptism-story.mp4'; dl.hidden = false;
-    shareBtn.hidden = false;
+    $('preview').src = url; $('preview').style.display = 'block';
+    $('download').href = url; $('download').download = file.name || 'my-baptism-story.mp4';
+    show('share'); show('download');
   });
-  shareBtn.addEventListener('click', async () => {
-    const text = 'I got baptized. Here is my story. Share yours: ' + location.href;
+
+  $('share').onclick = async () => {
     try {
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
-        await navigator.share({ files: [file], title: 'My Baptism Story', text });
+        await navigator.share({ files: [file], title: 'My Baptism Story', text: shareText });
       } else {
-        alert('Sharing videos works on phones. Download the video and upload it to Facebook, Instagram, or YouTube.');
+        alert('Video sharing works on phones. Download your video and use the links below.');
       }
     } catch (e) {}
-  });
+  };
 </script>
 </body>
 </html>
